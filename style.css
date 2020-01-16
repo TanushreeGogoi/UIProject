@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(238, 234, 234);
+    text-align:center
+}
+.header{
+    padding: 30px;
+    /* background-color: gold; */
+    background: #1abc9c;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+.mid{
+    font-size: 20px;
+}
+.footer{
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: goldenrod;
+    color: white;
+    text-align: center;
+}
+.design{
+    padding: 20px;
+    text-align: left;
+    height: 100px;
+}
+.designNoBorder{
+    padding: 20px;
+    text-align: left;
+    height: 50px;
+}
+.designCenter{
+    padding: 15px;
+    text-align: center;
+    border: solid;
+}
+.designSubmit{
+    padding: 20px;
+    text-align: left;
+    height: 200px;
+}
