@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular_JS App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="HangmanApp" ng-controller="GameController">
+    <div>
+        <div class="header">
+            **** Guess the Word ****
+        </div>
+        <div class="designNoBorder"></div>
+        <div class="mid container">
+            <div class="row">
+                <div class="col-md-5 col-lg-5">
+                    <div class="row design">
+                        <div class="col-md-12 col-lg-12">
+                            Guesses left :: <span id="guess">{{guesses}}</span>
+                            <div ng-style="custom"></div>
+                        </div>
+                    </div>
+                    <div class="row design">
+                        <div class="col-md-12 col-lg-12">
+                            Your Correct Guesses ::
+                            <br><span ng-repeat="letter in correctLettersChosen">{{letter}} </span>
+                        </div>
+                    </div>
+                    <div class="row design">
+                        <div class="col-md-12 col-lg-12">
+                            Your Incorrect Guesses ::
+                            <br><span ng-repeat="letter in incorrectLettersChosen">{{letter}} </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <div class="row designNoBorder"></div>
+                    <div class="row designNoBorder"></div>
+                    <div class="row design">
+                        <div class="col-md-12 col-lg-12" id="symb" ng-show="symbol"></div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-5">
+                    <div class="row design">
+                        <div class="col-md-12 col-lg-12" id="end">You have to guess the hidden word : </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-3 col-lg-3"></div>
+                        <div class="col-md-3 col-lg-3 designCenter">{{displayWord}}</div>
+                        <div class="col-md-3 col-lg-3"></div>
+                        <div class="col-md-3 col-lg-3"></div>
+                    </div>
+                    <div class="row designNoBorder"></div>
+                    <div class="row design">
+                        <div class="col-md-12 col-lg-12">
+                            <form name="game">
+                                <input type="text" id='guess' name='guess' ng-model="input.letter" ng-minlength="1"
+                                    ng-maxlength="1" ng-pattern="/^[A-Za-z]+$/" />
+                                <h6 ng-if="!game.guess.$valid" style="color:crimson">Entered value is incorrect..!!
+                                    Please input a
+                                    single letter..</h6>
+                                <button ng-click="letterChosen()">Submit</button>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row design">
+                        <div class="col-md-12 col-lg-12">
+                            <button ng-click="play()">New Game</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button ng-click="play()">Restart Game</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
